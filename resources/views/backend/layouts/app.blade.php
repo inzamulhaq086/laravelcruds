@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    @include('backends.layouts.header')
+    @include('backend.layouts.header')
     <!-- Section Hero -->
     @yield('content')
 
-    @include('backends.layouts.footer')
+    @include('backend.layouts.footer')
 </body>
 
 </html>

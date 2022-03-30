@@ -1,53 +1,42 @@
-@extends('backends.layouts.app')
+@extends('backend.layouts.app')
 @section('content')
-    <section>
-        <div class="bg-gray-100 min-h-screen py-32 px-10 ">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 "> 
-          
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-              <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt="" class="rounded-t-lg w-full">
-            <div class="p-6">
-              <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
+    <section class="bg-gray-100">
+        <div class="py-32  container mx-auto px-4">
+            <div class="w-full py-12">
+                <a href="{{ route('blog.create') }}"
+                    class="px-6 py-4 hover:bg-green-600 text-white rounded-md bg-green-500 inline-block text-3xl font-semibold">Create
+                    Blog</a>
             </div>
-              </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-              <img src="https://images.unsplash.com/photo-1572431447238-425af66a273b" alt="" class="rounded-t-lg w-full">
-            <div class="p-6">
-              <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
-            </div>
-              </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-              <img src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b" alt="" class="rounded-t-lg w-full">
-            <div class="p-6">
-              <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
-            </div>
-              </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-              <img src="https://images.unsplash.com/photo-1506790409786-287062b21cfe" alt="" class="rounded-t-lg w-full">
-            <div class="p-6">
-              <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
-            </div>
-              </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-              <img src="https://images.unsplash.com/photo-1505881502353-a1986add3762" alt="" class="rounded-t-lg w-full">
-            <div class="p-6">
-              <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
-            </div>
-              </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-              <img src="https://images.unsplash.com/photo-1544473244-f6895e69ad8b" alt="" class="rounded-t-lg w-full">
-            <div class="p-6">
-              <h1 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">This is Amazing for people to visit.</h1>
-            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quis.</p>
-            </div>
-              </div>
-          
-              </div>
-          </div>
+            @forelse ($blogs as $blog)
+                <div class="flex flex-wrap -mx-4">
+                    <div class="md:w-1/3 sm:w-1/2 w-full shadow-lg rounded-lg hover:shadow-2xl transition px-4 py-4">
+                        <img src="{{ asset('images/1.jpg') }}" alt="" class="rounded-t-lg w-full">
+                        <div class="py-4">
+                            <h1
+                                class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">
+                                This is Amazing for people to visit.</h1>
+                            <p class="text-gray-700 my-2 hover-text-900 ">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Praesentium quis.</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <div class=""><a href=""
+                                    class="px-3 py-2 hover:bg-green-600 text-white rounded-md bg-green-500 inline-block ">Edit</a>
+                            </div>
+                            <div class=""><a href=""
+                                    class="px-3 py-2 hover:bg-green-600 text-white rounded-md bg-green-500 inline-block ">Copy</a>
+                            </div>
+                            <div class=""><a href=""
+                                    class="px-3 py-2 hover:bg-green-600 text-white rounded-md bg-green-500 inline-block ">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="">No Data Found</div>
+            @endforelse
+        </div>
+        <div class="flex justify-center py-12">
+            {{ $blogs->links() }}
+        </div>
     </section>
 @endsection
