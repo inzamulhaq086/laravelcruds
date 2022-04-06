@@ -66,7 +66,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $data['blog'] = $blog;
+        return view('backend.blogs.editblog', $data);
     }
 
     /**
@@ -78,7 +79,14 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $upblog = $blog;
+        $upblog->title = $request->title;
+        $upblog->discription = $request->discription;
+        $upblog->images = $request->file('images')->store('images');       
+        if ($upblog->update()){
+            return redirect()->route('blog.index')->with('SUCCESS', "Valo Korsesis");
+        }
+        return back()->with('ERROR', "Fill Kor age");
     }
 
     /**
