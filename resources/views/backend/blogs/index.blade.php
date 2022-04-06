@@ -16,6 +16,7 @@
                                 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">
                                 {{ $blog->title }}</h1>
                             <p class="text-gray-700 my-2 hover-text-900 ">{{ $blog->dis }}</p>
+                            <p class="text-gray-700 my-2 hover-text-900 ">{{ $blog->dis }}</p>
                         </div>
                         <div class="flex space-x-2">
                             <div class=""><a href="{{ route('blog.edit', $blog->id) }}"
