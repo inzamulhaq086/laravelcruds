@@ -80,7 +80,7 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $blog->title = $request->title;
-        $blog->discription = $request->discription;
+        $blog->dis = $request->dis;
         $blog->images = $request->file('images')->store('images');       
         if ($blog->update()){
             return redirect()->route('blog.index')->with('SUCCESS', "Valo Korsesis");
@@ -96,6 +96,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        if ($blog->delete()){
+            return redirect()->route('blog.index')->with('SUCCESS', "Valo Korsesis");
+        }
+        return back()->with('ERROR', "Pari na");
     }
 }
