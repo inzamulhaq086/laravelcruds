@@ -79,11 +79,10 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        $upblog = $blog;
-        $upblog->title = $request->title;
-        $upblog->discription = $request->discription;
-        $upblog->images = $request->file('images')->store('images');       
-        if ($upblog->update()){
+        $blog->title = $request->title;
+        $blog->discription = $request->discription;
+        $blog->images = $request->file('images')->store('images');       
+        if ($blog->update()){
             return redirect()->route('blog.index')->with('SUCCESS', "Valo Korsesis");
         }
         return back()->with('ERROR', "Fill Kor age");

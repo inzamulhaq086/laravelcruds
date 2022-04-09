@@ -1,9 +1,9 @@
 <div class="w-full  bg-gray-50 px-12 py-12">
-    <input type="text" placeholder="Write your title" name="title" value="" class="my-3 w-full border-gray-300" />
+    <input type="text" placeholder="Write your title" name="title" value="{{isset($blog->title) ? $blog->title :''}}" class="my-3 w-full border-gray-300" />
     @error('title')
         <div class="text-red-600">{{ $message }}</div>
     @enderror
-    <textarea name="dis" placeholder="Discription" class="w-full border-gray-300"></textarea>
+    <textarea name="dis" placeholder="Discription" class="w-full border-gray-300">{{isset($blog->dis) ? $blog->dis : ''}}</textarea>
     @error('dis')
         <div class="text-red-600">{{ $message }}</div>
     @enderror
@@ -12,7 +12,7 @@
         <input
             class="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300"
             type="file" name="images" id="formFile">
-            <img src="" alt="" srcset="">
+            <img src="{{isset($blog->images) ? asset('storage/'. $blog->images) : ''}}" alt="" srcset="">
         @error('images')
             <div class="text-red-600">{{ $message }}</div>
         @enderror

@@ -10,7 +10,7 @@
             <div class="flex flex-wrap -mx-4 space-x-4">
                 @forelse ($blogs as $blog)
                     <div class="md:w-1/3 sm:w-1/2 w-full shadow-lg rounded-lg hover:shadow-2xl transition px-4 py-4">
-                        <img src="{{ asset('storage/' . $blog->images) }}" alt="" class="rounded-t-lg w-full">
+                        <img src="{{ asset('storage/'. $blog->images) }}" alt="" class="rounded-t-lg w-full">
                         <div class="py-4">
                             <h1
                                 class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-gray-900 ">
