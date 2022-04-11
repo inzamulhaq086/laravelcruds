@@ -101,4 +101,21 @@ class BlogController extends Controller
         }
         return back()->with('ERROR', "Pari na");
     }
+
+
+
+    public function copypost($copypost)
+    {
+        $blogpostcopy = Blog::where('id',$copypost)->first();
+        $createblog = Blog::create([
+            'title' => $blogpostcopy->title,
+            'dis' => $blogpostcopy->dis,
+            'images' => $blogpostcopy->images,
+        ]);
+        if (empty($createblog)) {
+            return back()->with('ERROR', "Fill Kor age");
+        }        
+        return redirect()->route('blog.index')->with('SUCCESS', "Valo Korsesis");
+        
+    }
 }

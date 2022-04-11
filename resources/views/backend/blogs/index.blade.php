@@ -22,7 +22,7 @@
                             <div class=""><a href="{{ route('blog.edit', $blog->id) }}"
                                     class="px-3 py-2 hover:bg-green-600 text-white rounded-md bg-green-500 inline-block ">Edit</a>
                             </div>
-                            <div class=""><a href=""
+                            <div class=""><a href="{{route('blog.copypost', $blog->id)}}"
                                     class="px-3 py-2 hover:bg-green-600 text-white rounded-md bg-green-500 inline-block ">Copy</a>
                             </div>
                             <div class=""><a href="{{ route('blog.destroy', $blog->id) }}"
